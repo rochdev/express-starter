@@ -1,0 +1,51 @@
+{
+  "name": "express-starter",
+  "version": "1.0.0",
+  "description": "A simple boilerplate for Express based APIs",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server | bunyan",
+    "lint": "eslint .",
+    "test": "eslint . && nyc --reporter=html --reporter=text mocha",
+    "tdd": "mocha --watch",
+    "codecov": "nyc report --reporter=text-lcov | codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rochdev/express-starter.git"
+  },
+  "keywords": [
+    "express",
+    "starter"
+  ],
+  "author": "Roch Devost",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rochdev/express-starter/issues"
+  },
+  "homepage": "https://github.com/rochdev/express-starter#readme",
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "bunyan": "^1.8.6",
+    "bunyan-middleware": "^0.6.0",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.16.1",
+    "eslint-config-standard": "^7.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.1.2",
+    "proxyquire": "^1.7.11",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^3.0.0"
+  }
+}

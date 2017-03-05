@@ -1,0 +1,7 @@
+*
+!src
+!package.json
+!server.js
+!yarn.lock
+!README.md
+!LICENSE
