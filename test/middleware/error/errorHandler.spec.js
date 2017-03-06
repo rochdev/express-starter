@@ -17,7 +17,7 @@ describe('middleware/errorHandler', () => {
   it('should handle client errors', () => {
     const err = createError(404)
 
-    errorHandler(err, null, res)
+    errorHandler()(err, null, res)
 
     expect(res.json).to.have.been.calledWith({
       name: 'NotFoundError',
@@ -28,7 +28,7 @@ describe('middleware/errorHandler', () => {
   it('should handle server errors', () => {
     const err = createError(500, 'boom')
 
-    errorHandler(err, null, res)
+    errorHandler()(err, null, res)
 
     expect(res.json).to.have.been.calledWith({ message: http.STATUS_CODES[500] })
   })
@@ -36,8 +36,18 @@ describe('middleware/errorHandler', () => {
   it('should handle uncaught errors', () => {
     const err = new Error('boom')
 
-    errorHandler(err, null, res)
+    errorHandler()(err, null, res)
 
     expect(res.json).to.have.been.calledWith({ message: http.STATUS_CODES[500] })
+  })
+
+  it('should support custom loggers', () => {
+    const req = {}
+    const err = new Error('boom')
+    const log = { error: sinon.stub() }
+
+    errorHandler(log)(err, req, res)
+
+    expect(log.error).to.have.been.calledWith({ err, req })
   })
 })

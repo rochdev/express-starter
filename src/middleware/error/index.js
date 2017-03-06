@@ -2,9 +2,11 @@ const express = require('express')
 const errorHandler = require('./errorHandler')
 const notFoundHandler = require('./notFoundHandler')
 
-const handler = express()
+module.exports = (options = {}) => {
+  const handler = express()
 
-handler.use(notFoundHandler)
-handler.use(errorHandler)
+  handler.use(notFoundHandler)
+  handler.use(errorHandler(options.logger))
 
-module.exports = () => handler
+  return handler
+}

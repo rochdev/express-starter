@@ -19,6 +19,6 @@ app.options('*', cors())
 app.use(cors())
 app.use(bodyParser.json())
 app.use(routes)
-app.use(error())
+app.use(error({ logger: log }))
 
 module.exports = app
