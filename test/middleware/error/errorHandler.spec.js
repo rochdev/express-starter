@@ -11,7 +11,7 @@ describe('middleware/errorHandler', () => {
       json: sinon.stub().returns(res)
     }
 
-    errorHandler = require('../../src/middleware/errorHandler')
+    errorHandler = require('../../../src/middleware/error/errorHandler')
   })
 
   it('should handle client errors', () => {

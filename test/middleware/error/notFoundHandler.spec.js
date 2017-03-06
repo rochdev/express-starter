@@ -6,7 +6,7 @@ describe('middleware/notFoundHandler', () => {
 
   beforeEach(() => {
     next = sinon.stub()
-    notFoundHandler = require('../../src/middleware/notFoundHandler')
+    notFoundHandler = require('../../../src/middleware/error/notFoundHandler')
   })
 
   it('should return a NotFoundError', () => {

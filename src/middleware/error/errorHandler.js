@@ -1,5 +1,5 @@
 const http = require('http')
-const log = require('../log')
+const log = require('../../log')
 
 const errorHandler = (err, req, res, next) => {
   const status = err.status || err.statusCode || 500
