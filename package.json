@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple boilerplate for Express based APIs",
   "main": "server.js",
+  "engines": {
+    "node": ">=6.10.0"
+  },
   "scripts": {
     "start": "nodemon server | bunyan",
     "lint": "eslint .",
