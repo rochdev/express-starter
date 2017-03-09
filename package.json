@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "test": "eslint . && nyc --reporter=html --reporter=text mocha",
     "tdd": "mocha --watch",
-    "codecov": "nyc report --reporter=text-lcov | codecov"
+    "codecov": "nyc report --reporter=lcov && codecov"
   },
   "repository": {
     "type": "git",
