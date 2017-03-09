@@ -8,22 +8,20 @@ const errorHandler = (logger) => {
   }
 
   return (err, req, res, next) => {
-    const status = err.status || err.statusCode || 500
+    let status = err.status || err.statusCode || 500
+    if (status < 400) status = 500
+    res.statusCode = status
+
     const body = {}
 
-    res.status(status)
-
-    // internal server errors
     if (status >= 500) {
+      // internal server errors
       logger.error({ err, req }, err.message)
       body.message = http.STATUS_CODES[status]
-      res.json(body)
-      return
+    } else {
+      // client errors
+      Object.assign(body, err)
     }
-
-    // client errors
-    body.message = err.message
-    body.name = err.name
 
     res.json(body)
   }

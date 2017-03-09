@@ -20,13 +20,20 @@ describe('middleware/errorHandler', () => {
     errorHandler()(err, null, res)
 
     expect(res.json).to.have.been.calledWith({
-      name: 'NotFoundError',
       message: http.STATUS_CODES[404]
     })
   })
 
   it('should handle server errors', () => {
     const err = createError(500, 'boom')
+
+    errorHandler()(err, null, res)
+
+    expect(res.json).to.have.been.calledWith({ message: http.STATUS_CODES[500] })
+  })
+
+  it('should handle other errors as server errors', () => {
+    const err = createError(200, 'boom')
 
     errorHandler()(err, null, res)
 
