@@ -17,6 +17,7 @@ Then simply make sure to update the `package.json`, `README.md` and `LICENSE` fi
 
 * Basic API middleware ([cors](https://github.com/expressjs/cors), [body-parser](https://github.com/expressjs/body-parser), [compression](https://github.com/expressjs/compression))
 * Basic error handling middleware
+* Validation using [Celebrate](https://github.com/continuationlabs/celebrate) and [Joi](https://github.com/hapijs/joi)
 * Logging with [bunyan](https://github.com/trentm/node-bunyan)
 * ESLint with [standard](https://github.com/feross/eslint-config-standard) configuration
 * Unit testing using [mocha](https://mochajs.org/), [chai](http://chaijs.com/), [sinon](http://sinonjs.org/), [proxyquire](https://github.com/thlorenz/proxyquire) and [supertest](https://github.com/visionmedia/supertest)
