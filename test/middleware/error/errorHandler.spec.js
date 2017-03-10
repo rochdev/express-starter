@@ -32,14 +32,6 @@ describe('middleware/errorHandler', () => {
     expect(res.json).to.have.been.calledWith({ message: http.STATUS_CODES[500] })
   })
 
-  it('should handle other errors as server errors', () => {
-    const err = createError(200, 'boom')
-
-    errorHandler()(err, null, res)
-
-    expect(res.json).to.have.been.calledWith({ message: http.STATUS_CODES[500] })
-  })
-
   it('should handle uncaught errors', () => {
     const err = new Error('boom')
 

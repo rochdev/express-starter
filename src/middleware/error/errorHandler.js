@@ -8,8 +8,7 @@ const errorHandler = (logger) => {
   }
 
   return (err, req, res, next) => {
-    let status = err.status || err.statusCode || 500
-    if (status < 400) status = 500
+    const status = err.status || err.statusCode || 500
     res.statusCode = status
 
     const body = {}
