@@ -1,5 +1,7 @@
 # Express Starter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rochdev/express-starter.svg)](https://greenkeeper.io/)
+
 A simple boilerplate for Express based APIs
 
 ## How to use
